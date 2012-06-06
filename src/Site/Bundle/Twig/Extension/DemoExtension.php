@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\DemoBundle\Twig\Extension;
+namespace Site\Bundle\Twig\Extension;
 
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
