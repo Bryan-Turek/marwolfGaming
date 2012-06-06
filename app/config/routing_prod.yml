@@ -1,0 +1,6 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: CoreBundle:Welcome:index }
+
+_main:
+    resource: routing.yml
