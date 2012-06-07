@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\DemoBundle\Form;
+namespace Site\Bundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;

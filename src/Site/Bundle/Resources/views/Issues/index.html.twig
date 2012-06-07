@@ -1,0 +1,16 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title "MarwolfGaming - Topics" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Topics</h1>
+    <div id="topics-list">
+		{% for topic in topics %}
+			<a href="/topic/{{ topic.subject }}">
+				{{ topic.subject }}
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

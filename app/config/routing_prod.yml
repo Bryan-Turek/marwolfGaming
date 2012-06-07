@@ -2,5 +2,10 @@ _welcome:
     pattern:  /
     defaults: { _controller: CoreBundle:Welcome:index }
 
+_demo:
+    resource: "@CoreBundle/Controller/IssuesController.php"
+    type:     annotation
+    prefix:   /issues
+
 _main:
     resource: routing.yml
