@@ -51,28 +51,32 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
         // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
         echo "\">Topics</a></li>
+\t\t\t\t<li><a href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_users"), "html", null, true);
+        echo "\">Users</a></li>
 \t\t\t</ul>
 \t\t</div>
         <div id=\"wrapper\">
             ";
-        // line 19
+        // line 20
         if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method")) {
-            // line 20
+            // line 21
             echo "                <div class=\"flash-message\">
                     <em>Notice</em>: ";
-            // line 21
+            // line 22
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method"), "html", null, true);
             echo "
                 </div>
             ";
         }
-        // line 24
+        // line 25
         echo "
             <div class=\"content\">
                 ";
-        // line 26
+        // line 27
         $this->displayBlock('content', $context, $blocks);
-        // line 28
+        // line 29
         echo "            </div>
         </div>
     </body>
@@ -86,10 +90,10 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
         echo "Demo Bundle";
     }
 
-    // line 26
+    // line 27
     public function block_content($context, array $blocks = array())
     {
-        // line 27
+        // line 28
         echo "                ";
     }
 
@@ -105,6 +109,6 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  91 => 27,  88 => 26,  82 => 7,  74 => 28,  72 => 26,  68 => 24,  62 => 21,  59 => 20,  57 => 19,  50 => 15,  46 => 14,  41 => 12,  34 => 8,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  95 => 28,  92 => 27,  86 => 7,  78 => 29,  76 => 27,  72 => 25,  66 => 22,  63 => 21,  61 => 20,  54 => 16,  50 => 15,  41 => 12,  34 => 8,  30 => 7,  26 => 6,  19 => 1,  68 => 18,  58 => 14,  52 => 11,  46 => 14,  42 => 8,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

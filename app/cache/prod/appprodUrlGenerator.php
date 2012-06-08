@@ -17,6 +17,8 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
        '_topics' => true,
        '_topic_name' => true,
        '_demo_contact' => true,
+       '_users' => true,
+       '_user_name' => true,
     );
 
     /**
@@ -52,11 +54,21 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 
     private function get_topic_nameRouteInfo()
     {
-        return array(array (  0 => 'id',), array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicsAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/topics',  ),));
+        return array(array (  0 => 'id',), array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/topics',  ),));
     }
 
     private function get_demo_contactRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::contactAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/topics/contact',  ),));
+    }
+
+    private function get_usersRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\UsersController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/users/',  ),));
+    }
+
+    private function get_user_nameRouteInfo()
+    {
+        return array(array (  0 => 'user',), array (  'user' => 'electissimi',  '_controller' => 'Site\\Bundle\\Controller\\UsersController::userAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'user',  ),  1 =>   array (    0 => 'text',    1 => '/users',  ),));
     }
 }

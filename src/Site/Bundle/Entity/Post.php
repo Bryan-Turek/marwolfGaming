@@ -27,13 +27,15 @@ class Post
     protected $posted;
 
     /**
-     * @ORM\Column(name="`post_topic`", type="integer")
+	 * @ORM\ManyToOne(targetEntity="Topic", inversedBy="posts")
+     * @ORM\JoinColumn(name="post_topic", referencedColumnName="topic_id")
      */
     protected $topic;
 	
 	/**
-	 * @ORM\Column(name="`post_by`", type="integer")
-	 */
+	 * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="post_by", referencedColumnName="user_id")
+     */
 	protected $author;
 	
 	public function setId($id) {
@@ -44,8 +46,8 @@ class Post
 		$this->content = $content;
 	}
 	
-	public function setDate($date) {
-		$this->posted = $date;
+	public function setPosted($posted) {
+		$this->posted = $posted;
 	}
 	
 	public function setTopic($topic) {
@@ -64,7 +66,7 @@ class Post
 		return $this->content;
 	}
 	
-	public function getDate() {
+	public function getPosted() {
 		return $this->posted;
 	}
 	

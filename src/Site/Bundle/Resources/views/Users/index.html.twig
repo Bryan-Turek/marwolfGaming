@@ -1,0 +1,18 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title "MarwolfGaming - Users" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Users</h1>
+    <div id="users-list">
+		{% for user in users %}
+		<div class="user" id="{{ user.name }}">
+			<div class="user_title">
+				<a href="/users/{{ user.name }}">{{ user.name }}</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

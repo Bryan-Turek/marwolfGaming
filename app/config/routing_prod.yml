@@ -7,5 +7,10 @@ _topics:
     type:     annotation
     prefix:   /topics
 
+_users:
+    resource: "@CoreBundle/Controller/UsersController.php"
+    type:     annotation
+    prefix:   /users
+
 _main:
     resource: routing.yml

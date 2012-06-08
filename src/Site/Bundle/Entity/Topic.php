@@ -36,6 +36,16 @@ class Topic
 	 */
 	protected $author;
 	
+	/**
+	 * @ORM\OneToMany(targetEntity="Post", mappedBy="topic")
+	 */
+	protected $posts;
+	
+	public function __construct()
+    {
+        $this->posts = new ArrayCollection();
+    }
+	
 	public function setId($id) {
 		$this->id = $id;
 	}
@@ -56,6 +66,10 @@ class Topic
 		$this->author = $author;
 	}
 	
+	public function setPosts($post) {
+		$this->posts->add($post);
+	}
+	
 	public function getId() {
 		return $this->id;
 	}
@@ -74,6 +88,10 @@ class Topic
 	
 	public function getAuthor() {
 		return $this->author;
+	}
+	
+	public function getPosts() {
+		return $this->posts;
 	}
 	
 }

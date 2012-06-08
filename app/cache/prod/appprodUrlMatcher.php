@@ -44,12 +44,28 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
             // _topic_name
             if (preg_match('#^/topics(?:/(?P<id>[^/]+?))?$#s', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicsAction',)), array('_route' => '_topic_name'));
+                return array_merge($this->mergeDefaults($matches, array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicAction',)), array('_route' => '_topic_name'));
             }
 
             // _demo_contact
             if ($pathinfo === '/topics/contact') {
                 return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::contactAction',  '_route' => '_demo_contact',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/users')) {
+            // _users
+            if (rtrim($pathinfo, '/') === '/users') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', '_users');
+                }
+                return array (  '_controller' => 'Site\\Bundle\\Controller\\UsersController::indexAction',  '_route' => '_users',);
+            }
+
+            // _user_name
+            if (preg_match('#^/users(?:/(?P<user>[^/]+?))?$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  'user' => 'electissimi',  '_controller' => 'Site\\Bundle\\Controller\\UsersController::userAction',)), array('_route' => '_user_name'));
             }
 
         }

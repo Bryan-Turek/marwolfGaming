@@ -27,14 +27,12 @@ class TopicsController extends Controller
      * @Route("/{id}", defaults={"id" = 1}, name="_topic_name")
      * @Template()
      */
-    public function topicsAction($id)
+    public function topicAction($id)
     {
-		$repository_topic = $this->getDoctrine()->getRepository('CoreBundle:Topic');
-		$repository_posts = $this->getDoctrine()->getRepository('CoreBundle:Post');
-		$topic = $repository_topic->findById($id);
-		$title = $topic[0];
-		$posts = $repository_posts->findByTopic($id);
-		return $this->render('CoreBundle:Topics:topic.html.twig', array('name' => $title, 'posts' => $posts));
+		$repository = $this->getDoctrine()->getRepository('CoreBundle:Topic');
+		$topic = $repository->findOneById($id);
+		$posts = $topic->getPosts();
+		return array('name' => $topic, 'posts' => $posts);
     }
 
     /**

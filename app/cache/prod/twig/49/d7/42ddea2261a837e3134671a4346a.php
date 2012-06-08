@@ -1,7 +1,7 @@
 <?php
 
-/* CoreBundle:Topics:topic.html.twig */
-class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
+/* CoreBundle:Topics:posts.html.twig */
+class __TwigTemplate_49d742ddea2261a837e3134671a4346a extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -43,50 +43,34 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
         // line 8
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "posts"));
-        $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
             // line 9
             echo "\t\t<div class=\"post\" id=\"post_";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "id"), "html", null, true);
             echo "\">
 \t\t\t<div class=\"user_box\">
-\t\t\t\t<span class=\"user_title\"><a href=\"/users/";
-            // line 11
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "post"), "author"), "name"), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "post"), "author"), "name"), "html", null, true);
-            echo "</a></span>
-\t\t\t\t<span class=\"user_info\">";
-            // line 12
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "posted"), "m/d/Y"), "html", null, true);
-            echo "</span>
+\t\t\t\t<div id=\"user_\">Electissimi</div>
 \t\t\t</div>
 \t\t\t<div class=\"post_content\">
 \t\t\t\t";
-            // line 15
+            // line 14
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "content"), "html", null, true);
             echo "
 \t\t\t</div>
 \t\t</div>
 \t\t";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 19
-            echo "\t\t\t<div id=\"noPosts\">No posts found!</div>
-\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 21
+        // line 18
         echo "\t</div>
 ";
     }
 
     public function getTemplateName()
     {
-        return "CoreBundle:Topics:topic.html.twig";
+        return "CoreBundle:Topics:posts.html.twig";
     }
 
     public function isTraitable()
@@ -96,6 +80,6 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  81 => 21,  74 => 19,  65 => 15,  59 => 12,  53 => 11,  47 => 9,  42 => 8,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  65 => 18,  55 => 14,  46 => 9,  42 => 8,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

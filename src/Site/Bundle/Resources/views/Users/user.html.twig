@@ -1,0 +1,8 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title "MarwolfGaming - " ~ user.name %}
+
+{% block content %}
+    <h1>{{ user.name }}!</h1>
+	<p>{{ user.email }}</p>
+{% endblock %}
