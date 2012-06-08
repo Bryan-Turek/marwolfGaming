@@ -2,10 +2,10 @@ _welcome:
     pattern:  /
     defaults: { _controller: CoreBundle:Welcome:index }
 
-_demo:
-    resource: "@CoreBundle/Controller/IssuesController.php"
+_topics:
+    resource: "@CoreBundle/Controller/TopicsController.php"
     type:     annotation
-    prefix:   /issues
+    prefix:   /topics
 
 _main:
     resource: routing.yml

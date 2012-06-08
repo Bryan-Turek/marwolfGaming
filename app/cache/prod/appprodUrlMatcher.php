@@ -33,23 +33,23 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
         }
 
-        if (0 === strpos($pathinfo, '/issues')) {
-            // _demo
-            if (rtrim($pathinfo, '/') === '/issues') {
+        if (0 === strpos($pathinfo, '/topics')) {
+            // _topics
+            if (rtrim($pathinfo, '/') === '/topics') {
                 if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', '_demo');
+                    return $this->redirect($pathinfo.'/', '_topics');
                 }
-                return array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::indexAction',  '_route' => '_demo',);
+                return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::indexAction',  '_route' => '_topics',);
             }
 
-            // _demo_hello
-            if (0 === strpos($pathinfo, '/issues/hello') && preg_match('#^/issues/hello/(?P<name>[^/]+?)$#s', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::helloAction',)), array('_route' => '_demo_hello'));
+            // _topic_name
+            if (preg_match('#^/topics(?:/(?P<id>[^/]+?))?$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicsAction',)), array('_route' => '_topic_name'));
             }
 
             // _demo_contact
-            if ($pathinfo === '/issues/contact') {
-                return array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::contactAction',  '_route' => '_demo_contact',);
+            if ($pathinfo === '/topics/contact') {
+                return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::contactAction',  '_route' => '_demo_contact',);
             }
 
         }

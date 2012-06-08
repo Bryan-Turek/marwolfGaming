@@ -29,7 +29,7 @@ a
 
 a:hover
 {
-    text-decoration: underline;
+
 }
 
 strong
@@ -50,8 +50,8 @@ h1, h2, h3
 
 h1
 {
-    font-size:      45px;
-    padding-bottom: 30px;
+	font-family: 'Patua One', cursive;
+    font-size:      32px;
 }
 
 h2
@@ -103,14 +103,25 @@ ul li
 
 #header
 {
+	background:#222;
     position: relative;
-    padding: 30px 30px 20px 30px;
+    padding: 20px 30px;
+}
+
+#header h1 
+{
+	display:inline;
+}
+
+#header h1 a 
+{
+	color:white;
+	text-shadow: -3px 0 4px #000;
 }
 
 #wrapper
 {
-    width:  970px;
-    margin: 0 auto;
+    margin: 0 20px;
 }
 
 .content
@@ -118,11 +129,33 @@ ul li
     background-color:           white;
     border:                     1px solid #DFDFDF;
     padding:                    50px;
-    -moz-border-radius:         16px;
-    -webkit-border-radius:      16px;
-    border-radius:              16px;
     margin-bottom:              20px;
     word-wrap:                  break-word;
+}
+
+.content h1 {
+}
+
+.topic 
+{
+	padding:20px;
+	border-bottom:1px solid #AAA;
+}
+
+.topic , .topic_title 
+{
+
+}
+
+.topic , .topic_title a 
+{
+	font-size:18px;
+}
+
+.post {
+	padding:20px;
+	margin: 20px 0px 0px 0px;
+	border:1px solid #CCC;
 }
 
 input[type=text], input[type=password]
@@ -249,8 +282,9 @@ input[type=text], input[type=password]
 
 ul#menu
 {
-    float: right;
-    margin-bottom: 20px;
+	font-size: 20px;
+	margin-left:20px;
+	display: inline;
     padding-left: 0;
 }
 

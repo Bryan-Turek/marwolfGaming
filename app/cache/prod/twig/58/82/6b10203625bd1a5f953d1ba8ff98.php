@@ -50,7 +50,7 @@ class __TwigTemplate_58826b10203625bd1a5f953d1ba8ff98 extends Twig_Template
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "topics"));
         foreach ($context['_seq'] as $context["_key"] => $context["topic"]) {
             // line 11
-            echo "\t\t\t<a href=\"/topic/";
+            echo "\t\t\t<a href=\"/topics/";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "subject"), "html", null, true);
             echo "\">
 \t\t\t\t";

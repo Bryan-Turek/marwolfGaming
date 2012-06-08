@@ -14,8 +14,8 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 {
     static private $declaredRouteNames = array(
        '_welcome' => true,
-       '_demo' => true,
-       '_demo_hello' => true,
+       '_topics' => true,
+       '_topic_name' => true,
        '_demo_contact' => true,
     );
 
@@ -45,18 +45,18 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
         return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/',  ),));
     }
 
-    private function get_demoRouteInfo()
+    private function get_topicsRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/issues/',  ),));
+        return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/topics/',  ),));
     }
 
-    private function get_demo_helloRouteInfo()
+    private function get_topic_nameRouteInfo()
     {
-        return array(array (  0 => 'name',), array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::helloAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'name',  ),  1 =>   array (    0 => 'text',    1 => '/issues/hello',  ),));
+        return array(array (  0 => 'id',), array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicsAction',), array (), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '[^/]+?',    3 => 'id',  ),  1 =>   array (    0 => 'text',    1 => '/topics',  ),));
     }
 
     private function get_demo_contactRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\IssuesController::contactAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/issues/contact',  ),));
+        return array(array (), array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::contactAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/topics/contact',  ),));
     }
 }

@@ -1,5 +1,4 @@
 <?php
-// src/Site/Bundle/Entity/Product.php
 namespace Site\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -23,7 +22,7 @@ class Topic
     protected $subject;
 
     /**
-     * @ORM\Column(name="`topic_date`", type="date")
+     * @ORM\Column(name="`topic_date`", type="datetime")
      */
     protected $posted;
 

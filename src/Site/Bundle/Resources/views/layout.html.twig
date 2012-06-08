@@ -2,43 +2,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ asset('bundles/site/css/style.css') }}" type="text/css" media="all" />
         <title>{% block title %}Demo Bundle{% endblock %}</title>
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+		<div id="header">
+			<h1><a href="{{ path('_welcome') }}">MarwolfGaming</a></h1>
+			<ul id="menu">
+				<li><a href="{{ path('_welcome') }}">Games</a></li>
+				<li><a href="{{ path('_topics') }}">Topics</a></li>
+			</ul>
+		</div>
         <div id="wrapper">
-            <div id="header">
-                <a href="{{ path('_welcome') }}">
-                    <img src="{{ asset('bundles/site/images/logo.gif') }}" alt="Symfony">
-                </a>
-            </div>
-
             {% if app.session.flash('notice') %}
                 <div class="flash-message">
                     <em>Notice</em>: {{ app.session.flash('notice') }}
                 </div>
             {% endif %}
 
-            {% block content_header %}
-                <ul id="menu">
-                    {% block content_header_more %}
-                        <li><a href="{{ path('_demo') }}">Demo Home</a></li>
-                    {% endblock %}
-                </ul>
-
-                <div style="clear: both"></div>
-            {% endblock %}
-
             <div class="content">
                 {% block content %}
                 {% endblock %}
             </div>
-
-            {% if code is defined %}
-                <h2>Code behind this page</h2>
-                <div class="symfony-content">{{ code|raw }}</div>
-            {% endif %}
         </div>
     </body>
 </html>

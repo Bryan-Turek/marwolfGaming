@@ -11,8 +11,6 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'content_header' => array($this, 'block_content_header'),
-            'content_header_more' => array($this, 'block_content_header_more'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -24,112 +22,74 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 <html>
     <head>
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+\t\t<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
         <link rel=\"stylesheet\" href=\"";
-        // line 5
+        // line 6
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/site/css/style.css"), "html", null, true);
         echo "\" type=\"text/css\" media=\"all\" />
         <title>";
-        // line 6
+        // line 7
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
         <link rel=\"shortcut icon\" href=\"";
-        // line 7
+        // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
     <body>
-        <div id=\"wrapper\">
-            <div id=\"header\">
-                <a href=\"";
+\t\t<div id=\"header\">
+\t\t\t<h1><a href=\"";
         // line 12
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_welcome"), "html", null, true);
-        echo "\">
-                    <img src=\"";
-        // line 13
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/site/images/logo.gif"), "html", null, true);
-        echo "\" alt=\"Symfony\">
-                </a>
-            </div>
-
+        echo "\">MarwolfGaming</a></h1>
+\t\t\t<ul id=\"menu\">
+\t\t\t\t<li><a href=\"";
+        // line 14
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_welcome"), "html", null, true);
+        echo "\">Games</a></li>
+\t\t\t\t<li><a href=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
+        echo "\">Topics</a></li>
+\t\t\t</ul>
+\t\t</div>
+        <div id=\"wrapper\">
             ";
-        // line 17
+        // line 19
         if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method")) {
-            // line 18
+            // line 20
             echo "                <div class=\"flash-message\">
                     <em>Notice</em>: ";
-            // line 19
+            // line 21
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method"), "html", null, true);
             echo "
                 </div>
             ";
         }
-        // line 22
-        echo "
-            ";
-        // line 23
-        $this->displayBlock('content_header', $context, $blocks);
-        // line 32
+        // line 24
         echo "
             <div class=\"content\">
                 ";
-        // line 34
+        // line 26
         $this->displayBlock('content', $context, $blocks);
-        // line 36
+        // line 28
         echo "            </div>
-
-            ";
-        // line 38
-        if (array_key_exists("code", $context)) {
-            // line 39
-            echo "                <h2>Code behind this page</h2>
-                <div class=\"symfony-content\">";
-            // line 40
-            echo $this->getContext($context, "code");
-            echo "</div>
-            ";
-        }
-        // line 42
-        echo "        </div>
+        </div>
     </body>
 </html>
 ";
     }
 
-    // line 6
+    // line 7
     public function block_title($context, array $blocks = array())
     {
         echo "Demo Bundle";
     }
 
-    // line 23
-    public function block_content_header($context, array $blocks = array())
-    {
-        // line 24
-        echo "                <ul id=\"menu\">
-                    ";
-        // line 25
-        $this->displayBlock('content_header_more', $context, $blocks);
-        // line 28
-        echo "                </ul>
-
-                <div style=\"clear: both\"></div>
-            ";
-    }
-
-    // line 25
-    public function block_content_header_more($context, array $blocks = array())
-    {
-        // line 26
-        echo "                        <li><a href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_demo"), "html", null, true);
-        echo "\">Demo Home</a></li>
-                    ";
-    }
-
-    // line 34
+    // line 26
     public function block_content($context, array $blocks = array())
     {
-        // line 35
+        // line 27
         echo "                ";
     }
 
@@ -145,6 +105,6 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  131 => 35,  128 => 34,  121 => 26,  118 => 25,  111 => 28,  109 => 25,  106 => 24,  103 => 23,  97 => 6,  90 => 42,  85 => 40,  82 => 39,  80 => 38,  76 => 36,  74 => 34,  70 => 32,  68 => 23,  65 => 22,  59 => 19,  56 => 18,  54 => 17,  47 => 13,  35 => 7,  31 => 6,  27 => 5,  21 => 1,  43 => 12,  40 => 7,  34 => 5,  28 => 3,);
+        return array (  91 => 27,  88 => 26,  82 => 7,  74 => 28,  72 => 26,  68 => 24,  62 => 21,  59 => 20,  57 => 19,  50 => 15,  46 => 14,  41 => 12,  34 => 8,  30 => 7,  26 => 6,  19 => 1,);
     }
 }
