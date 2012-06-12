@@ -45,7 +45,7 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
         echo "\">";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "topic"), "category"), "name"), "html", null, true);
         echo "</a></div>
-\t<div id=\"create-topic\"><a href=\"#\">Reply</a></div>
+\t<div id=\"create-reply\"><a href=\"#reply_box\">Reply</a></div>
 \t<div id=\"posts-list\">
 \t\t";
         // line 10
@@ -54,29 +54,29 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["post"]) {
             // line 11
-            echo "\t\t<div class=\"post\" id=\"post_";
+            echo "\t\t\t<div class=\"post\" id=\"post_";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "id"), "html", null, true);
             echo "\">
-\t\t\t<div class=\"user_box\">
-\t\t\t\t<span class=\"user_title\"><a href=\"";
+\t\t\t\t<div class=\"user_box\">
+\t\t\t\t\t<span class=\"user_title\"><a href=\"";
             // line 13
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_users"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "post"), "author"), "name"), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "post"), "author"), "name"), "html", null, true);
             echo "</a></span>
-\t\t\t\t<span class=\"user_info\">";
+\t\t\t\t\t<span class=\"user_info\">";
             // line 14
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "posted"), "m/d/Y"), "html", null, true);
             echo "</span>
-\t\t\t</div>
-\t\t\t<div class=\"post_content\">
-\t\t\t\t<p>";
+\t\t\t\t</div>
+\t\t\t\t<div class=\"post_content\">
+\t\t\t\t\t<p>";
             // line 17
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "post"), "content"), "html", null, true);
             echo "</p>
+\t\t\t\t</div>
 \t\t\t</div>
-\t\t</div>
 \t\t";
             $context['_iterated'] = true;
         }
@@ -89,7 +89,35 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['post'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
         // line 23
-        echo "\t</div>
+        echo "\t\t<div id=\"reply_box\" style=\"\">
+\t\t\t<h1>Reply</h1>
+\t\t\t";
+        // line 25
+        if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "get", array(0 => "logged_in"), "method")) {
+            // line 26
+            echo "\t\t\t\t<form action=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "id"), "html", null, true);
+            echo "-";
+            echo twig_escape_filter($this->env, strtr(twig_lower_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "subject")), array(" " => "-")), "html", null, true);
+            echo "\" method=\"post\" ";
+            echo $this->env->getExtension('form')->renderEnctype($this->getContext($context, "reply"));
+            echo ">
+\t\t\t\t\t";
+            // line 27
+            echo $this->env->getExtension('form')->renderWidget($this->getContext($context, "reply"));
+            echo "
+\t\t\t\t\t<input type=\"submit\" />
+\t\t\t\t</form>
+\t\t\t";
+        } else {
+            // line 31
+            echo "\t\t\t\t<p>Please login to reply to this topic</p>
+\t\t\t";
+        }
+        // line 33
+        echo "\t\t</div>
+\t</div>
 ";
     }
 
@@ -105,6 +133,6 @@ class __TwigTemplate_acce731d87f1ba3a740be602c19554ee extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  90 => 23,  83 => 21,  74 => 17,  68 => 14,  61 => 13,  55 => 11,  50 => 10,  41 => 7,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  117 => 33,  113 => 31,  106 => 27,  96 => 26,  94 => 25,  90 => 23,  83 => 21,  74 => 17,  68 => 14,  61 => 13,  55 => 11,  50 => 10,  41 => 7,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

@@ -34,8 +34,9 @@ class Topic
     protected $category;
 	
 	/**
-	 * @ORM\Column(name="`topic_by`", type="integer")
-	 */
+	 * @ORM\ManyToOne(targetEntity="User", inversedBy="topics")
+     * @ORM\JoinColumn(name="topic_by", referencedColumnName="user_id")
+     */
 	protected $author;
 	
 	/**

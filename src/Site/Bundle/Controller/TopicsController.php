@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Site\Bundle\Entity\Post;
 use Site\Bundle\Entity\Topic;
 use Site\Bundle\Form\CreateTopicType;
+use Site\Bundle\Form\ReplyType;
 
 // these import the "@Route" and "@Template" annotations
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -57,7 +58,7 @@ class TopicsController extends Controller
 				$topic->setDate(new \DateTime());
 				$post->setPosted(new \DateTime());
 				
-				//set session logged in = true, get user id
+				//get session logged_in, get user id
 				$user_id = $session->get('user_id');
 				$user = $this->getDoctrine()->getRepository('CoreBundle:User')->findOneById($user_id);
 				
@@ -75,21 +76,52 @@ class TopicsController extends Controller
 				return $this->redirect($this->generateUrl('_topics') . $path);
 			}
 		}
-		
+
 		return array('subject' => $subject->createView());
     }
 
-    /**
-     * @Route("/{name}", defaults={"id" = "Testing"}, name="_topic_name")
-     * @Template()
-     */
-    public function topicAction($name)
+	/**
+	* @Route("/{name}", defaults={"id" = "Testing"}, name="_topic_name")
+	* @Template()
+	*/
+    public function topicAction($name, Request $request)
     {
 		$arr = explode('-',$name);
 		$id = intval($arr[0]);
 		$repository = $this->getDoctrine()->getRepository('CoreBundle:Topic');
 		$topic = $repository->findOneById($id);
 		$posts = $topic->getPosts();
-		return array('topic' => $topic, 'posts' => $posts);
+		
+		$post = new Post();
+		$reply = $this->createForm(new ReplyType(), $post);
+		
+		if ($request->getMethod() == 'POST') {
+			$reply->bindRequest($request);
+
+			if ($reply->isValid()) {
+			
+				$post->setPosted(new \DateTime());
+				$post->setTopic($topic);
+				
+				//get session logged_in, get user id
+				$session = $this->getRequest()->getSession();
+				$user_id = $session->get('user_id');
+				$user = $this->getDoctrine()->getRepository('CoreBundle:User')->findOneById($user_id);
+				
+				//set author
+				$post->setAuthor($user);
+				
+				//enter into the database
+				$em = $this->getDoctrine()->getEntityManager();
+				$em->persist($post);
+				$em->flush();
+				
+				$reply = $this->createForm(new ReplyType(), $post);
+				return array('topic' => $topic, 'posts' => $posts, 'reply' => $reply->createView());
+			}
+			
+		}
+		
+		return array('topic' => $topic, 'posts' => $posts, 'reply' => $reply->createView());
     }
 }

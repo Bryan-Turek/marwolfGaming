@@ -49,6 +49,11 @@ class User implements UserInterface
 	protected $posts;
 	
 	/**
+	 * @ORM\OneToMany(targetEntity="Topic", mappedBy="author")
+	 */
+	protected $topics;
+	
+	/**
      * @ORM\Column(name="`user_active`", type="boolean")
      */
     private $active;

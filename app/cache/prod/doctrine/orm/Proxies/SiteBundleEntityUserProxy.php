@@ -171,7 +171,7 @@ class SiteBundleEntityUserProxy extends \Site\Bundle\Entity\User implements \Doc
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'password', 'email', 'registered', 'rank', 'posts', 'active');
+        return array('__isInitialized__', 'id', 'name', 'password', 'email', 'registered', 'rank', 'posts', 'topics', 'active');
     }
 
     public function __clone()

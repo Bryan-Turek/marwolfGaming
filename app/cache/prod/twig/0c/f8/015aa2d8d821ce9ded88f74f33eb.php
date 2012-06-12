@@ -77,6 +77,15 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "subject"), "html", null, true);
             echo "</a>
+\t\t\t\t<div class=\"topic_info\">
+\t\t\t\t\tPosted by: <a href=\"";
+            // line 19
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_users"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "topic"), "author"), "name"), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "topic"), "author"), "name"), "html", null, true);
+            echo "</a>
+\t\t\t\t</div>
 \t\t\t</div>
 \t\t</div>
 \t\t";
@@ -84,7 +93,7 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['topic'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 21
+        // line 24
         echo "\t</div>
 ";
     }
@@ -101,6 +110,6 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  86 => 21,  71 => 17,  66 => 15,  61 => 14,  57 => 13,  54 => 12,  48 => 10,  46 => 9,  43 => 8,  40 => 7,  34 => 5,  28 => 3,);
+        return array (  95 => 24,  81 => 19,  71 => 17,  66 => 15,  61 => 14,  57 => 13,  54 => 12,  48 => 10,  46 => 9,  43 => 8,  40 => 7,  34 => 5,  28 => 3,);
     }
 }

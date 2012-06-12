@@ -5,20 +5,31 @@
 {% block content %}
     <h1>{{ topic.subject }}</h1>
 	<div id="breadcrumb">Category : <a href="{{ path('_categories') }}{{ topic.category.name }}">{{ topic.category.name }}</a></div>
-	<div id="create-topic"><a href="#">Reply</a></div>
+	<div id="create-reply"><a href="#reply_box">Reply</a></div>
 	<div id="posts-list">
 		{% for post in posts %}
-		<div class="post" id="post_{{ post.id }}">
-			<div class="user_box">
-				<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
-				<span class="user_info">{{ post.posted|date("m/d/Y") }}</span>
+			<div class="post" id="post_{{ post.id }}">
+				<div class="user_box">
+					<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
+					<span class="user_info">{{ post.posted|date("m/d/Y") }}</span>
+				</div>
+				<div class="post_content">
+					<p>{{ post.content }}</p>
+				</div>
 			</div>
-			<div class="post_content">
-				<p>{{ post.content }}</p>
-			</div>
-		</div>
 		{% else %}
 			<div id="noPosts">No posts found!</div>
 		{% endfor %}
+		<div id="reply_box" style="">
+			<h1>Reply</h1>
+			{% if app.session.get('logged_in') %}
+				<form action="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}" method="post" {{ form_enctype(reply) }}>
+					{{ form_widget(reply) }}
+					<input type="submit" />
+				</form>
+			{% else %}
+				<p>Please login to reply to this topic</p>
+			{% endif %}
+		</div>
 	</div>
 {% endblock %}

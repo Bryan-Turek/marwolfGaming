@@ -164,14 +164,25 @@ ul li
 	border: 		1px solid #DFDFDF;
 }
 
-.topic , .topic_title 
+.topic_title 
 {
-
+	display:		inline-block;
+	vertical-align:	middle;
 }
 
-.topic , .topic_title a 
+.topic_title a 
 {
 	font-size:		18px;
+}
+
+.topic_info
+{
+	font-size:		12px;
+}
+
+.topic_info a
+{
+	font-size:		12px;
 }
 
 .topic_rank
@@ -224,6 +235,14 @@ ul li
 .post .post_content 
 {
 	
+}
+
+#reply_box
+{
+	padding: 		20px 30px;
+	background: 	white;
+	margin: 		20px 0px 0px 0px;
+	border: 		1px solid #DFDFDF;
 }
 
 .user_title 
@@ -447,6 +466,25 @@ textarea
 {
 	font-size:	20px;
 	width: 		500px;
+}
+
+#reply_form
+{
+	margin: 	0px 0px 20px 0px;
+}
+
+#reply_form label
+{
+	display:	block;
+	margin:		20px 0px 5px 0px;
+	font-size:	18px;
+}
+
+#reply_form textarea
+{
+	font-size: 	18px;
+	width: 		500px;
+	height:		150px;
 }
 
 ul#menu
