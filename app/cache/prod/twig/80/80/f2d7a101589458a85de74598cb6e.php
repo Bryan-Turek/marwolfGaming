@@ -35,48 +35,76 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
         // line 8
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
+\t\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js\"></script>
     </head>
     <body>
 \t\t<div id=\"header\">
 \t\t\t<h1><a href=\"";
-        // line 12
+        // line 13
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_welcome"), "html", null, true);
         echo "\">MarwolfGaming</a></h1>
 \t\t\t<ul id=\"menu\">
 \t\t\t\t<li><a href=\"";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_welcome"), "html", null, true);
         echo "\">Games</a></li>
 \t\t\t\t<li><a href=\"";
-        // line 15
+        // line 16
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
         echo "\">Topics</a></li>
 \t\t\t\t<li><a href=\"";
-        // line 16
+        // line 17
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_users"), "html", null, true);
         echo "\">Users</a></li>
 \t\t\t</ul>
+\t\t\t<div id=\"user_panel\">
+\t\t\t\t";
+        // line 20
+        if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "get", array(0 => "logged_in"), "method")) {
+            // line 21
+            echo "\t\t\t\t\t<a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_users"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "get", array(0 => "username"), "method"), "html", null, true);
+            echo "\">PROFILE</a>
+\t\t\t\t\t<a href=\"";
+            // line 22
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_logout"), "html", null, true);
+            echo "\">LOGOUT</a>
+\t\t\t\t";
+        } else {
+            // line 24
+            echo "\t\t\t\t\t<a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_registration"), "html", null, true);
+            echo "\">REGISTER</a>
+\t\t\t\t\t<a href=\"";
+            // line 25
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_login"), "html", null, true);
+            echo "\">LOGIN</a>
+\t\t\t\t";
+        }
+        // line 27
+        echo "\t\t\t</div>
 \t\t</div>
         <div id=\"wrapper\">
             ";
-        // line 20
+        // line 30
         if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method")) {
-            // line 21
+            // line 31
             echo "                <div class=\"flash-message\">
                     <em>Notice</em>: ";
-            // line 22
+            // line 32
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "flash", array(0 => "notice"), "method"), "html", null, true);
             echo "
                 </div>
             ";
         }
-        // line 25
+        // line 35
         echo "
             <div class=\"content\">
                 ";
-        // line 27
+        // line 37
         $this->displayBlock('content', $context, $blocks);
-        // line 29
+        // line 39
         echo "            </div>
         </div>
     </body>
@@ -90,10 +118,10 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
         echo "Demo Bundle";
     }
 
-    // line 27
+    // line 37
     public function block_content($context, array $blocks = array())
     {
-        // line 28
+        // line 38
         echo "                ";
     }
 
@@ -109,6 +137,6 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  95 => 28,  92 => 27,  86 => 7,  78 => 29,  76 => 27,  72 => 25,  66 => 22,  63 => 21,  61 => 20,  54 => 16,  50 => 15,  41 => 12,  34 => 8,  30 => 7,  26 => 6,  19 => 1,  68 => 18,  58 => 14,  52 => 11,  46 => 14,  42 => 8,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  123 => 38,  120 => 37,  114 => 7,  106 => 39,  104 => 37,  100 => 35,  94 => 32,  91 => 31,  89 => 30,  84 => 27,  79 => 25,  74 => 24,  69 => 22,  63 => 21,  61 => 20,  55 => 17,  51 => 16,  47 => 15,  42 => 13,  34 => 8,  30 => 7,  26 => 6,  19 => 1,);
     }
 }

@@ -1,0 +1,18 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title "MarwolfGaming - Categories" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Categories</h1>
+    <div id="users-list">
+		{% for category in categories %}
+		<div class="user" id="{{ category.name }}">
+			<div class="user_title">
+				<a href="{{ path('_categories') }}{{ category.name }}">{{ category.name }}</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

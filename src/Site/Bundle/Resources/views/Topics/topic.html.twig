@@ -1,18 +1,20 @@
 {% extends "CoreBundle::layout.html.twig" %}
 
-{% block title "MarwolfGaming - " ~ name.subject %}
+{% block title "MarwolfGaming - " ~ topic.subject %}
 
 {% block content %}
-    <h1>{{ name.subject }}!</h1>
+    <h1>{{ topic.subject }}</h1>
+	<div id="breadcrumb">Category : <a href="{{ path('_categories') }}{{ topic.category.name }}">{{ topic.category.name }}</a></div>
+	<div id="create-topic"><a href="#">Reply</a></div>
 	<div id="posts-list">
 		{% for post in posts %}
 		<div class="post" id="post_{{ post.id }}">
 			<div class="user_box">
-				<span class="user_title"><a href="/users/{{ post.author.name }}">{{ post.author.name }}</a></span>
+				<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
 				<span class="user_info">{{ post.posted|date("m/d/Y") }}</span>
 			</div>
 			<div class="post_content">
-				{{ post.content }}
+				<p>{{ post.content }}</p>
 			</div>
 		</div>
 		{% else %}

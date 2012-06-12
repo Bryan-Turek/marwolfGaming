@@ -4,5 +4,8 @@
 
 {% block content %}
     <h1>{{ user.name }}!</h1>
-	<p>{{ user.email }}</p>
+	<div id="user_info">
+		Email : {{ user.email }}<br />
+		Registered : {{ user.registered|date("m/d/Y") }}<br />
+	</div>
 {% endblock %}

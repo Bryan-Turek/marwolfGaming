@@ -2,6 +2,18 @@ _welcome:
     pattern:  /
     defaults: { _controller: CoreBundle:Welcome:index }
 
+_registration:
+    pattern:  /register/
+    defaults: { _controller: CoreBundle:Welcome:register }
+
+_login:
+    pattern:  /login/
+    defaults: { _controller: CoreBundle:Welcome:login }
+
+_logout:
+    pattern:  /logout/
+    defaults: { _controller: CoreBundle:Welcome:logout }
+
 _topics:
     resource: "@CoreBundle/Controller/TopicsController.php"
     type:     annotation
@@ -11,6 +23,11 @@ _users:
     resource: "@CoreBundle/Controller/UsersController.php"
     type:     annotation
     prefix:   /users
+
+_categories:
+    resource: "@CoreBundle/Controller/CategoriesController.php"
+    type:     annotation
+    prefix:   /categories
 
 _main:
     resource: routing.yml

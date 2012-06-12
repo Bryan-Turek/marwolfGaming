@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ asset('bundles/site/css/style.css') }}" type="text/css" media="all" />
         <title>{% block title %}Demo Bundle{% endblock %}</title>
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     </head>
     <body>
 		<div id="header">
@@ -15,6 +16,15 @@
 				<li><a href="{{ path('_topics') }}">Topics</a></li>
 				<li><a href="{{ path('_users') }}">Users</a></li>
 			</ul>
+			<div id="user_panel">
+				{% if app.session.get('logged_in') %}
+					<a href="{{ path('_users') }}{{ app.session.get('username') }}">PROFILE</a>
+					<a href="{{ path('_logout') }}">LOGOUT</a>
+				{% else %}
+					<a href="{{ path('_registration') }}">REGISTER</a>
+					<a href="{{ path('_login') }}">LOGIN</a>
+				{% endif %}
+			</div>
 		</div>
         <div id="wrapper">
             {% if app.session.flash('notice') %}

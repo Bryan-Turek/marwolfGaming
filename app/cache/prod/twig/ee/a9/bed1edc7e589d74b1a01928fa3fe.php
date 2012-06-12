@@ -38,10 +38,16 @@ class __TwigTemplate_eea9bed1edc7e589d74b1a01928fa3fe extends Twig_Template
         echo "    <h1>";
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "name"), "html", null, true);
         echo "!</h1>
-\t<p>";
-        // line 7
+\t<div id=\"user_info\">
+\t\tEmail : ";
+        // line 8
         echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "email"), "html", null, true);
-        echo "</p>
+        echo "<br />
+\t\tRegistered : ";
+        // line 9
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($this->getContext($context, "user"), "registered"), "m/d/Y"), "html", null, true);
+        echo "<br />
+\t</div>
 ";
     }
 
@@ -57,6 +63,6 @@ class __TwigTemplate_eea9bed1edc7e589d74b1a01928fa3fe extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  41 => 7,  36 => 6,  33 => 5,  27 => 3,);
+        return array (  46 => 9,  42 => 8,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

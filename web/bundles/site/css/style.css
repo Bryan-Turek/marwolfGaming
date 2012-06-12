@@ -104,7 +104,7 @@ ul li
 {
 	background:#222;
     position: relative;
-    padding: 20px 30px;
+    padding: 10px 30px 20px 80px;
 }
 
 #header h1 
@@ -114,31 +114,54 @@ ul li
 
 #header h1 a 
 {
-	color:white;
-	text-shadow: -3px 0 4px #000;
+	font-size: 	26px;
+	color:		white;
+	text-shadow:-3px 0 4px #000;
+}
+
+#user_panel
+{
+	top:		25px;
+	position: 	absolute;
+	right: 		80px;
+}
+
+#user_panel a:first-child
+{
+	margin:		0px 10px 0px 0px;
+	padding:	0px 10px 0px 0px;
+	border-right:1px solid #333;
+}
+
+#user_panel a
+{
+	text-transform:uppercase;
 }
 
 #wrapper
 {
-    margin: 0 20px;
+    margin: 	0 80px;
 }
 
 .content
 {
-    background-color:           white;
-    border:                     1px solid #DFDFDF;
-    padding:                    50px;
+    padding:                    30px 50px 50px 50px;
     margin-bottom:              20px;
     word-wrap:                  break-word;
 }
 
-.content h1 {
+.content h1 
+{
+	color: #222;
+	text-shadow: -1px 0px 1px #AAA;
 }
 
 .topic 
 {
-	padding:20px;
-	border-bottom:1px solid #AAA;
+	background: 	white;
+	margin-top: 	20px;
+	padding: 		20px;
+	border: 		1px solid #DFDFDF;
 }
 
 .topic , .topic_title 
@@ -148,23 +171,54 @@ ul li
 
 .topic , .topic_title a 
 {
-	font-size:18px;
+	font-size:		18px;
+}
+
+.topic_rank
+{
+	width: 			70px;
+	float: 			left;
+}
+
+#create-topic, #create-reply
+{
+	position: 		relative;
+	float: 			right;
+	margin-top: 	-27px;
+}
+
+#create-topic a, #create-reply a
+{	
+	text-shadow: 	-1px 0px 2px #111;
+	text-transform:	uppercase;
+	background: 	#222;
+	padding: 		8px 16px;
 }
 
 .post {
-	overflow: hidden;
-	padding:20px;
-	margin: 20px 0px 0px 0px;
-	border:1px solid #CCC;
+	background:		white;
+	overflow: 		hidden;
+	padding:		20px;
+	border-left:	1px solid #DFDFDF;
+	border-right:	1px solid #DFDFDF;
+	border-bottom:	1px solid #DFDFDF;
+	
+}
+
+.post:first-child
+{
+	border-top: 	1px solid #DFDFDF;
+	border-bottom: 	1px solid #DFDFDF;
+	margin:			20px 0px 0px 0px;
 }
 
 .post .user_box
 {
-	margin-right: 20px;
-	display: inline-block;
-	border: 1px solid #CCC;
-	padding: 20px;
-	float: left;
+	margin: 		0px 20px 20px 0px;
+	display: 		inline-block;
+	border-right: 	1px solid #CCC;
+	padding: 		0px 20px 0px 0px;
+	float: 			left;
 }
 
 .post .post_content 
@@ -174,36 +228,72 @@ ul li
 
 .user_title 
 {
-	display: block;
+	display: 		block;
 }
 
-input[type=text], input[type=password]
+#users-list
 {
-    border:      1px solid #DADADA;
-    background:  white url(../images/field-background.gif) repeat-x left top;
-    padding:     5px 6px;
-    color:       #565656;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-    font-size:   12px;
+	margin:			20px 0px 20px 0px;
+}
+
+.user:first-child
+{
+	border-top:		1px solid #DFDFDF;
+}
+
+.user
+{
+	background:		white;
+	padding: 		10px;
+	border-bottom:	1px solid #DFDFDF;
+	border-right:	1px solid #DFDFDF;
+	border-left:	1px solid #DFDFDF;
+}
+
+#user_info
+{
+	display: 		inline-block;
+	padding: 		10px;
+	border: 		1px solid #CCC;
+	margin: 		20px 20px 20px 0px;
+}
+
+input[type=text], input[type=password], input[type=email]
+{
+    border:      	1px solid #DADADA;
+    background:  	white url(../images/field-background.gif) repeat-x left top;
+    padding:     	5px 6px;
+    color:       	#565656;
+    font-family: 	'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+    font-size:   	12px;
+}
+
+textarea
+{
+	border: 		1px solid #DADADA;
+	background:		white url(../images/field-background.gif) repeat-x left top;
+	padding: 		5px 6px;
+	color:			#565656;
+	font-size: 		12px;
 }
 
 .symfony-button-grey,
 .symfony-button-green
 {
-    font-size: 0.85em;
-    font-weight: bold;
+    font-size: 		0.85em;
+    font-weight: 	bold;
 
-    cursor: pointer;
+    cursor: 		pointer;
 
-    display: inline-block;
-    outline: none;
+    display: 		inline-block;
+    outline: 		none;
 
     text-align:     center;
     text-transform: uppercase;
 
-    padding: 3px 10px;
+    padding: 		3px 10px;
 
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    text-shadow: 	0 1px 1px rgba(0,0,0,.3);
 
     -webkit-border-radius: 4px;
     -moz-border-radius:    4px;
@@ -299,9 +389,69 @@ input[type=text], input[type=password]
     width: 90px;
 }
 
+#create_topic_form
+{
+	margin: 0px 0px 20px 0px;
+}
+
+#create_topic_form label
+{
+	display:	block;
+	margin:		20px 0px 5px 0px;
+	font-size:	18px;
+}
+
+#create_topic_form input
+{
+	font-size:	20px;
+	width: 		500px;
+}
+
+#create_topic_form textarea
+{
+	width:		500px;
+	height:		250px;
+}
+
+#registration_form
+{
+	margin: 	0px 0px 20px 0px;
+}
+
+#registration_form label
+{
+	display:	block;
+	margin:		20px 0px 5px 0px;
+	font-size:	18px;
+}
+
+#registration_form input
+{
+	font-size:	20px;
+	width: 		500px;
+}
+
+#login_form
+{
+	margin: 	0px 0px 20px 0px;
+}
+
+#login_form label
+{
+	display:	block;
+	margin:		20px 0px 5px 0px;
+	font-size:	18px;
+}
+
+#login_form input
+{
+	font-size:	20px;
+	width: 		500px;
+}
+
 ul#menu
 {
-	font-size: 20px;
+	font-size: 16px;
 	margin-left:20px;
 	display: inline;
     padding-left: 0;
@@ -312,4 +462,13 @@ ul#menu
     padding-left: 0;
     margin-right: 10px;
     display: inline;
+}
+
+#menu li a
+{
+	border-bottom:1px solid;
+	text-transform:uppercase;
+	padding: 5px 10px;
+	background: #333;
+	text-shadow: -1px 0px 2px #111;
 }

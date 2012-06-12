@@ -1,0 +1,13 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+
+{% block title %}MarwolfGaming - Register{% endblock %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Register!</h1>
+	<form action="{{ path('_registration') }}" method="post" {{ form_enctype(registration) }}>
+		{{ form_widget(registration) }}
+		<input type="submit" />
+	</form>
+{% endblock %}

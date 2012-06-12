@@ -1,10 +1,11 @@
 <?php
 namespace Site\Bundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Site\Bundle\Repository\TopicRepository")
  * @ORM\Table(name="topics")
  */
 class Topic
@@ -27,7 +28,8 @@ class Topic
     protected $posted;
 
     /**
-     * @ORM\Column(name="`topic_cat`", type="integer")
+	 * @ORM\ManyToOne(targetEntity="Category", inversedBy="topics")
+     * @ORM\JoinColumn(name="topic_cat", referencedColumnName="cat_id")
      */
     protected $category;
 	
@@ -41,9 +43,15 @@ class Topic
 	 */
 	protected $posts;
 	
+	/**
+     * @ORM\Column(name="`topic_rank`", type="integer")
+     */
+    protected $rank;
+	
 	public function __construct()
     {
         $this->posts = new ArrayCollection();
+		$this->rank = 0;
     }
 	
 	public function setId($id) {
@@ -70,6 +78,10 @@ class Topic
 		$this->posts->add($post);
 	}
 	
+	public function setRank($rank) {
+		$this->rank = $rank;
+	}
+	
 	public function getId() {
 		return $this->id;
 	}
@@ -92,6 +104,10 @@ class Topic
 	
 	public function getPosts() {
 		return $this->posts;
+	}
+	
+	public function getRank() {
+		return $this->rank;
 	}
 	
 }

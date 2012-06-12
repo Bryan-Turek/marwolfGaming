@@ -78,6 +78,18 @@ class SiteBundleEntityUserProxy extends \Site\Bundle\Entity\User implements \Doc
         return parent::setPosts($post);
     }
 
+    public function setActive($active)
+    {
+        $this->__load();
+        return parent::setActive($active);
+    }
+
+    public function setSalt()
+    {
+        $this->__load();
+        return parent::setSalt();
+    }
+
     public function getId()
     {
         $this->__load();
@@ -120,10 +132,46 @@ class SiteBundleEntityUserProxy extends \Site\Bundle\Entity\User implements \Doc
         return parent::getPosts();
     }
 
+    public function getActive()
+    {
+        $this->__load();
+        return parent::getActive();
+    }
+
+    public function getUsername()
+    {
+        $this->__load();
+        return parent::getUsername();
+    }
+
+    public function getSalt()
+    {
+        $this->__load();
+        return parent::getSalt();
+    }
+
+    public function getRoles()
+    {
+        $this->__load();
+        return parent::getRoles();
+    }
+
+    public function eraseCredentials()
+    {
+        $this->__load();
+        return parent::eraseCredentials();
+    }
+
+    public function equals(\Symfony\Component\Security\Core\User\UserInterface $user)
+    {
+        $this->__load();
+        return parent::equals($user);
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'name', 'password', 'email', 'registered', 'rank', 'posts');
+        return array('__isInitialized__', 'id', 'name', 'password', 'email', 'registered', 'rank', 'posts', 'active');
     }
 
     public function __clone()

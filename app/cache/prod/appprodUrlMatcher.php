@@ -33,6 +33,30 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
         }
 
+        // _registration
+        if (rtrim($pathinfo, '/') === '/register') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', '_registration');
+            }
+            return array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::registerAction',  '_route' => '_registration',);
+        }
+
+        // _login
+        if (rtrim($pathinfo, '/') === '/login') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', '_login');
+            }
+            return array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::loginAction',  '_route' => '_login',);
+        }
+
+        // _logout
+        if (rtrim($pathinfo, '/') === '/logout') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', '_logout');
+            }
+            return array (  '_controller' => 'Site\\Bundle\\Controller\\WelcomeController::logoutAction',  '_route' => '_logout',);
+        }
+
         if (0 === strpos($pathinfo, '/topics')) {
             // _topics
             if (rtrim($pathinfo, '/') === '/topics') {
@@ -42,14 +66,14 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::indexAction',  '_route' => '_topics',);
             }
 
-            // _topic_name
-            if (preg_match('#^/topics(?:/(?P<id>[^/]+?))?$#s', $pathinfo, $matches)) {
-                return array_merge($this->mergeDefaults($matches, array (  'id' => 1,  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicAction',)), array('_route' => '_topic_name'));
+            // _topic_create
+            if ($pathinfo === '/topics/create') {
+                return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::createAction',  '_route' => '_topic_create',);
             }
 
-            // _demo_contact
-            if ($pathinfo === '/topics/contact') {
-                return array (  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::contactAction',  '_route' => '_demo_contact',);
+            // _topic_name
+            if (preg_match('#^/topics/(?P<name>[^/]+?)$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  'id' => 'Testing',  '_controller' => 'Site\\Bundle\\Controller\\TopicsController::topicAction',)), array('_route' => '_topic_name'));
             }
 
         }
@@ -66,6 +90,22 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             // _user_name
             if (preg_match('#^/users(?:/(?P<user>[^/]+?))?$#s', $pathinfo, $matches)) {
                 return array_merge($this->mergeDefaults($matches, array (  'user' => 'electissimi',  '_controller' => 'Site\\Bundle\\Controller\\UsersController::userAction',)), array('_route' => '_user_name'));
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/categories')) {
+            // _categories
+            if (rtrim($pathinfo, '/') === '/categories') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', '_categories');
+                }
+                return array (  '_controller' => 'Site\\Bundle\\Controller\\CategoriesController::indexAction',  '_route' => '_categories',);
+            }
+
+            // _categories_name
+            if (preg_match('#^/categories(?:/(?P<cat>[^/]+?))?$#s', $pathinfo, $matches)) {
+                return array_merge($this->mergeDefaults($matches, array (  'cat' => 'Alert',  '_controller' => 'Site\\Bundle\\Controller\\CategoriesController::categoryAction',)), array('_route' => '_categories_name'));
             }
 
         }

@@ -6,11 +6,15 @@
 
 {% block content %}
     <h1>Topics</h1>
-    <div id="topics-list">
+	{% if app.session.get('logged_in') %}
+		<div id="create-topic"><a href="{{ path('_topics') }}create">Create Topic</a></div>
+    {% endif %}
+	<div id="topics-list">
 		{% for topic in topics %}
 		<div class="topic" id="topic_{{ topic.id }}">
+			<div class="topic_rank">{{ topic.rank }}</div>
 			<div class="topic_title">
-				<a href="/topics/{{ topic.id }}">{{ topic.subject }}</a>
+				<a href="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}">{{ topic.subject }}</a>
 			</div>
 		</div>
 		{% endfor %}

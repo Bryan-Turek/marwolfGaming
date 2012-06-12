@@ -1,0 +1,11 @@
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title "MarwolfGaming - Create Topic" %}
+
+{% block content %}
+	<h1>Create a Topic!</h1>
+	<form action="{{ path('_topic_create') }}" method="post" {{ form_enctype(subject) }}>
+		{{ form_widget(subject) }}
+		<input type="submit" />
+	</form>
+{% endblock %}

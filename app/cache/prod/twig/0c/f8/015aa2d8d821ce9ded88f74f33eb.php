@@ -43,20 +43,37 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
     {
         // line 8
         echo "    <h1>Topics</h1>
-    <div id=\"topics-list\">
+\t";
+        // line 9
+        if ($this->getAttribute($this->getAttribute($this->getContext($context, "app"), "session"), "get", array(0 => "logged_in"), "method")) {
+            // line 10
+            echo "\t\t<div id=\"create-topic\"><a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
+            echo "create\">Create Topic</a></div>
+    ";
+        }
+        // line 12
+        echo "\t<div id=\"topics-list\">
 \t\t";
-        // line 10
+        // line 13
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getContext($context, "topics"));
         foreach ($context['_seq'] as $context["_key"] => $context["topic"]) {
-            // line 11
+            // line 14
             echo "\t\t<div class=\"topic\" id=\"topic_";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "id"), "html", null, true);
             echo "\">
+\t\t\t<div class=\"topic_rank\">";
+            // line 15
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "rank"), "html", null, true);
+            echo "</div>
 \t\t\t<div class=\"topic_title\">
-\t\t\t\t<a href=\"/topics/";
-            // line 13
+\t\t\t\t<a href=\"";
+            // line 17
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_topics"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "id"), "html", null, true);
+            echo "-";
+            echo twig_escape_filter($this->env, strtr(twig_lower_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "subject")), array(" " => "-")), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "topic"), "subject"), "html", null, true);
             echo "</a>
@@ -67,7 +84,7 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['topic'], $context['_parent'], $context['loop']);
         $context = array_merge($_parent, array_intersect_key($context, $_parent));
-        // line 17
+        // line 21
         echo "\t</div>
 ";
     }
@@ -84,6 +101,6 @@ class __TwigTemplate_0cf8015aa2d8d821ce9ded88f74f33eb extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  69 => 17,  57 => 13,  51 => 11,  47 => 10,  43 => 8,  40 => 7,  34 => 5,  28 => 3,);
+        return array (  86 => 21,  71 => 17,  66 => 15,  61 => 14,  57 => 13,  54 => 12,  48 => 10,  46 => 9,  43 => 8,  40 => 7,  34 => 5,  28 => 3,);
     }
 }

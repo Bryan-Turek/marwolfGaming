@@ -2,12 +2,14 @@
 namespace Site\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -46,6 +48,13 @@ class User
 	 */
 	protected $posts;
 	
+	/**
+     * @ORM\Column(name="`user_active`", type="boolean")
+     */
+    private $active;
+	
+	protected $salt;
+	
 	public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -79,6 +88,14 @@ class User
 		$this->posts->add($post);
 	}
 	
+	public function setActive($active) {
+		$this->active = $active;
+	}
+	
+	public function setSalt() {
+		$this->salt = md5(uniqid(null, true));
+	}
+	
 	public function getId() {
 		return $this->id;
 	}
@@ -106,5 +123,48 @@ class User
 	public function getPosts() {
 		return $this->posts;
 	}
+	
+	public function getActive() {
+		return $this->active;
+	}
+	
+	/**
+     * @inheritDoc
+     */
+    public function getUsername()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function equals(UserInterface $user)
+    {
+        return $this->username === $user->getUsername();
+    }
 	
 }

@@ -1,0 +1,13 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+
+{% block title %}MarwolfGaming - Login{% endblock %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1>Login!</h1>
+	<form action="{{ path('_login') }}" method="post" {{ form_enctype(login) }}>
+		{{ form_widget(login) }}
+		<input type="submit" />
+	</form>
+{% endblock %}
