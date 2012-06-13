@@ -60,6 +60,8 @@ class User implements UserInterface
 	
 	protected $salt;
 	
+	protected $encname;
+	
 	public function __construct()
     {
         $this->posts = new ArrayCollection();
@@ -131,6 +133,10 @@ class User implements UserInterface
 	
 	public function getActive() {
 		return $this->active;
+	}
+	
+	public function getEncname() {
+		return md5($this->name);
 	}
 	
 	/**

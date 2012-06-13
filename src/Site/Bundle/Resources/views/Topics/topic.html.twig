@@ -5,11 +5,14 @@
 {% block content %}
     <h1>{{ topic.subject }}</h1>
 	<div id="breadcrumb">Category : <a href="{{ path('_categories') }}{{ topic.category.name }}">{{ topic.category.name }}</a></div>
-	<div id="create-reply"><a href="#reply_box">Reply</a></div>
+	{% if app.session.get('logged_in') %}
+		<div id="create-reply"><a href="#reply_box">Reply</a></div>
+	{% endif %}
 	<div id="posts-list">
 		{% for post in posts %}
 			<div class="post" id="post_{{ post.id }}">
 				<div class="user_box">
+					<img src="http://www.vanillicon.com/{{ post.author.encname }}_100.png" />
 					<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
 					<span class="user_info">{{ post.posted|date("m/d/Y") }}</span>
 				</div>

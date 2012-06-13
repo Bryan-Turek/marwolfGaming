@@ -138,6 +138,12 @@ class SiteBundleEntityUserProxy extends \Site\Bundle\Entity\User implements \Doc
         return parent::getActive();
     }
 
+    public function getEncname()
+    {
+        $this->__load();
+        return parent::getEncname();
+    }
+
     public function getUsername()
     {
         $this->__load();

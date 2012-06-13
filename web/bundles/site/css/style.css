@@ -140,7 +140,9 @@ ul li
 
 #wrapper
 {
-    margin: 	0 80px;
+    margin: 	0 auto;
+	min-width:	780px;
+	max-width:	1260px;
 }
 
 .content
@@ -212,15 +214,19 @@ ul li
 	padding:		20px;
 	border-left:	1px solid #DFDFDF;
 	border-right:	1px solid #DFDFDF;
-	border-bottom:	1px solid #DFDFDF;
+	border-top:	1px solid #DFDFDF;
 	
 }
 
 .post:first-child
 {
-	border-top: 	1px solid #DFDFDF;
 	border-bottom: 	1px solid #DFDFDF;
-	margin:			20px 0px 0px 0px;
+	margin:			20px 0px 20px 0px;
+}
+
+.post::nth-last-child(2)
+{
+	border-bottom:	1px solid #DFDFDF;
 }
 
 .post .user_box

@@ -115,7 +115,7 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
     // line 7
     public function block_title($context, array $blocks = array())
     {
-        echo "Demo Bundle";
+        echo "MarwolfGaming";
     }
 
     // line 37
@@ -137,6 +137,6 @@ class __TwigTemplate_8080f2d7a101589458a85de74598cb6e extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  123 => 38,  120 => 37,  114 => 7,  106 => 39,  104 => 37,  100 => 35,  94 => 32,  91 => 31,  89 => 30,  84 => 27,  79 => 25,  74 => 24,  69 => 22,  63 => 21,  61 => 20,  55 => 17,  51 => 16,  47 => 15,  42 => 13,  34 => 8,  30 => 7,  26 => 6,  19 => 1,);
+        return array (  123 => 38,  120 => 37,  114 => 7,  106 => 39,  104 => 37,  100 => 35,  94 => 32,  91 => 31,  89 => 30,  84 => 27,  79 => 25,  74 => 24,  69 => 22,  63 => 21,  61 => 20,  55 => 17,  51 => 16,  47 => 15,  34 => 8,  30 => 7,  26 => 6,  19 => 1,  46 => 9,  42 => 13,  36 => 6,  33 => 5,  27 => 3,);
     }
 }

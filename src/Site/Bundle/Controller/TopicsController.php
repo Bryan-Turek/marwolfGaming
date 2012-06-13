@@ -63,7 +63,7 @@ class TopicsController extends Controller
 				$user = $this->getDoctrine()->getRepository('CoreBundle:User')->findOneById($user_id);
 				
 				//set author
-				$topic->setAuthor($user_id);
+				$topic->setAuthor($user);
 				$post->setAuthor($user);
 				
 				//enter into the database
@@ -116,8 +116,6 @@ class TopicsController extends Controller
 				$em->persist($post);
 				$em->flush();
 				
-				$reply = $this->createForm(new ReplyType(), $post);
-				return array('topic' => $topic, 'posts' => $posts, 'reply' => $reply->createView());
 			}
 			
 		}
