@@ -58,6 +58,7 @@ class WelcomeController extends Controller
 				$session->set('logged_in', true);
 				$session->set('username', $user->getName());
 				$session->set('user_id', $user->getId());
+				$session->set('encname', $user->getEncname());
 				
 				return $this->redirect($this->generateUrl('_users') . $user->getName());
 			}
@@ -97,6 +98,7 @@ class WelcomeController extends Controller
 					$session->set('logged_in', true);
 					$session->set('username', $check_user->getName());
 					$session->set('user_id', $check_user->getId());
+					$session->set('encname', $check_user->getEncname());
 					
 					return $this->redirect($this->generateUrl('_welcome'));
 				} else {

@@ -18,8 +18,13 @@
 			</ul>
 			<div id="user_panel">
 				{% if app.session.get('logged_in') %}
-					<a href="{{ path('_users') }}{{ app.session.get('username') }}">PROFILE</a>
-					<a href="{{ path('_logout') }}">LOGOUT</a>
+					<div id="small_user_image">
+						<img src="http://www.vanillicon.com/{{ app.session.get('encname') }}_50.png" />
+					</div>
+					<div id="user_links">
+						<a href="{{ path('_users') }}{{ app.session.get('username') }}">PROFILE</a>
+						<a href="{{ path('_logout') }}">LOGOUT</a>
+					</div>
 				{% else %}
 					<a href="{{ path('_registration') }}">REGISTER</a>
 					<a href="{{ path('_login') }}">LOGIN</a>

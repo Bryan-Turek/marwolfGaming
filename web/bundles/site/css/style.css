@@ -121,16 +121,18 @@ ul li
 
 #user_panel
 {
-	top:		25px;
-	position: 	absolute;
-	right: 		80px;
+	top:			9px;
+	position: 		absolute;
+	right: 			80px;
+	background:		#333;
+	padding: 		0px 10px 0px 0px;
 }
 
 #user_panel a:first-child
 {
 	margin:		0px 10px 0px 0px;
 	padding:	0px 10px 0px 0px;
-	border-right:1px solid #333;
+	border-right:1px solid #444;
 }
 
 #user_panel a
@@ -138,11 +140,23 @@ ul li
 	text-transform:uppercase;
 }
 
+#small_user_image
+{
+	height: 					50px;
+	display: 					inline-block;
+	vertical-align: 			middle;
+	margin:						0px 10px 0px 0px;
+}
+
+#user_links
+{
+	display:					inline-block;
+}
+
 #wrapper
 {
-    margin: 	0 auto;
+    margin: 	0 80px;
 	min-width:	780px;
-	max-width:	1260px;
 }
 
 .content
@@ -277,9 +291,11 @@ ul li
 
 #user_info
 {
+	width:			200px;
+	background:		white;
 	display: 		inline-block;
-	padding: 		10px;
-	border: 		1px solid #CCC;
+	padding: 		20px;
+	border: 		1px solid #DFDFDF;
 	margin: 		20px 20px 20px 0px;
 }
 
@@ -510,9 +526,8 @@ ul#menu
 
 #menu li a
 {
-	border-bottom:1px solid;
 	text-transform:uppercase;
-	padding: 5px 10px;
+	padding: 15px 10px;
 	background: #333;
 	text-shadow: -1px 0px 2px #111;
 }
