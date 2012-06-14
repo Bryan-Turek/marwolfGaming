@@ -12,9 +12,11 @@
 		{% for post in posts %}
 			<div class="post" id="post_{{ post.id }}">
 				<div class="user_box">
-					<img src="http://www.vanillicon.com/{{ post.author.encname }}_100.png" />
-					<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
-					<span class="user_info">{{ post.posted|date("m/d/Y") }}</span>
+					<div class="user_info">
+						<img src="http://www.vanillicon.com/{{ post.author.encname }}_100.png" />
+						<span class="user_title"><a href="{{ path('_users') }}{{ post.author.name }}">{{ post.author.name }}</a></span>
+						<span class="user_date">{{ post.posted|date("m/d/Y") }}</span>
+					</div>
 				</div>
 				<div class="post_content">
 					<p>{{ post.content }}</p>
@@ -23,16 +25,16 @@
 		{% else %}
 			<div id="noPosts">No posts found!</div>
 		{% endfor %}
-		<div id="reply_box" style="">
-			<h1>Reply</h1>
-			{% if app.session.get('logged_in') %}
-				<form action="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}" method="post" {{ form_enctype(reply) }}>
-					{{ form_widget(reply) }}
-					<input type="submit" />
-				</form>
-			{% else %}
-				<p>Please login to reply to this topic</p>
-			{% endif %}
-		</div>
+	</div>
+	<div id="reply_box" style="">
+		<h1>Reply</h1>
+		{% if app.session.get('logged_in') %}
+			<form action="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}" method="post" {{ form_enctype(reply) }}>
+				{{ form_widget(reply) }}
+				<input type="submit" />
+			</form>
+		{% else %}
+			<p>Please login to reply to this topic</p>
+		{% endif %}
 	</div>
 {% endblock %}

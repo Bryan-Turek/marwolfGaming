@@ -102,9 +102,11 @@ ul li
 
 #header
 {
-	background:#222;
-    position: relative;
-    padding: 10px 30px 20px 80px;
+	width:				100%;
+	background:			#222;
+    position: 			fixed;
+    padding: 			10px 30px 20px 80px;
+	z-index:			2;
 }
 
 #header h1 
@@ -123,9 +125,8 @@ ul li
 {
 	top:			9px;
 	position: 		absolute;
-	right: 			80px;
+	right: 			190px;
 	background:		#333;
-	padding: 		0px 10px 0px 0px;
 }
 
 #user_panel a:first-child
@@ -145,22 +146,24 @@ ul li
 	height: 					50px;
 	display: 					inline-block;
 	vertical-align: 			middle;
-	margin:						0px 10px 0px 0px;
 }
 
 #user_links
 {
+	padding: 					16px 10px;
 	display:					inline-block;
 }
 
 #wrapper
 {
-    margin: 	0 80px;
-	min-width:	780px;
+	padding:					70px 0px 0px 0px;
+    margin: 					0 80px;
+	min-width:					780px;
 }
 
 .content
 {
+	background:					#DFDFDF;
     padding:                    30px 50px 50px 50px;
     margin-bottom:              20px;
     word-wrap:                  break-word;
@@ -177,13 +180,12 @@ ul li
 	background: 	white;
 	margin-top: 	20px;
 	padding: 		20px;
-	border: 		1px solid #DFDFDF;
+	border: 		1px solid #CDCDCD;
 }
 
-.topic_title 
+.topic_details
 {
-	display:		inline-block;
-	vertical-align:	middle;
+	display:					table-cell;
 }
 
 .topic_title a 
@@ -203,8 +205,10 @@ ul li
 
 .topic_rank
 {
-	width: 			70px;
-	float: 			left;
+	text-align:					center;
+	vertical-align: 			middle;
+	display: 					table-cell;
+	width: 						70px;
 }
 
 #create-topic, #create-reply
@@ -219,42 +223,46 @@ ul li
 	text-shadow: 	-1px 0px 2px #111;
 	text-transform:	uppercase;
 	background: 	#222;
-	padding: 		8px 16px;
+	padding: 		16px;
 }
 
 .post {
 	background:		white;
 	overflow: 		hidden;
 	padding:		20px;
-	border-left:	1px solid #DFDFDF;
-	border-right:	1px solid #DFDFDF;
-	border-top:	1px solid #DFDFDF;
+	border-left:	1px solid #CDCDCD;
+	border-right:	1px solid #CDCDCD;
+	border-top:	1px solid #CDCDCD;
 	
 }
 
 .post:first-child
 {
-	border-bottom: 	1px solid #DFDFDF;
+	border-bottom: 	1px solid #CDCDCD;
 	margin:			20px 0px 20px 0px;
 }
 
-.post::nth-last-child(2)
+.post:last-child
 {
-	border-bottom:	1px solid #DFDFDF;
+	border-bottom:	1px solid #CDCDCD;
 }
 
 .post .user_box
 {
-	margin: 		0px 20px 20px 0px;
-	display: 		inline-block;
-	border-right: 	1px solid #CCC;
-	padding: 		0px 20px 0px 0px;
-	float: 			left;
+	vertical-align:				top;
+	display: 					table-cell;
+}
+
+.user_info
+{
+	margin:						0px 20px 0px 0px;
+	border-right: 				1px solid #CCC;
+	padding: 					0px 20px 0px 0px;
 }
 
 .post .post_content 
 {
-	
+	display:					table-cell;
 }
 
 #reply_box
@@ -262,7 +270,7 @@ ul li
 	padding: 		20px 30px;
 	background: 	white;
 	margin: 		20px 0px 0px 0px;
-	border: 		1px solid #DFDFDF;
+	border: 		1px solid #CDCDCD;
 }
 
 .user_title 
@@ -277,16 +285,35 @@ ul li
 
 .user:first-child
 {
-	border-top:		1px solid #DFDFDF;
+	border-top:		1px solid #CDCDCD;
 }
 
 .user
 {
 	background:		white;
 	padding: 		10px;
-	border-bottom:	1px solid #DFDFDF;
-	border-right:	1px solid #DFDFDF;
-	border-left:	1px solid #DFDFDF;
+	border-bottom:	1px solid #CDCDCD;
+	border-right:	1px solid #CDCDCD;
+	border-left:	1px solid #CDCDCD;
+}
+
+#user_sidebar
+{
+	vertical-align: 		top;
+	display: 				table-cell;
+}
+
+#user_main
+{
+	display:				table-cell;
+}
+
+#user_content
+{
+	padding:				20px;
+	margin:					20px 0px 0px 0px;
+	background:				white;
+	border:					1px solid #CDCDCD;
 }
 
 #user_info
@@ -295,7 +322,7 @@ ul li
 	background:		white;
 	display: 		inline-block;
 	padding: 		20px;
-	border: 		1px solid #DFDFDF;
+	border: 		1px solid #CDCDCD;
 	margin: 		20px 20px 20px 0px;
 }
 

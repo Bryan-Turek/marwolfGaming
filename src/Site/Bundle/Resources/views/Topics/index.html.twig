@@ -13,8 +13,10 @@
 		{% for topic in topics %}
 		<div class="topic" id="topic_{{ topic.id }}">
 			<div class="topic_rank">{{ topic.rank }}</div>
-			<div class="topic_title">
-				<a href="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}">{{ topic.subject }}</a>
+			<div class="topic_details">
+				<div class="topic_title">
+					<a href="{{ path('_topics') }}{{ topic.id }}-{{ topic.subject|lower|replace({' ': '-'}) }}">{{ topic.subject }}</a>
+				</div>
 				<div class="topic_info">
 					Posted by: <a href="{{ path('_users') }}{{ topic.author.name }}">{{ topic.author.name }}</a>
 				</div>

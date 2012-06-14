@@ -26,8 +26,10 @@
 						<a href="{{ path('_logout') }}">LOGOUT</a>
 					</div>
 				{% else %}
-					<a href="{{ path('_registration') }}">REGISTER</a>
-					<a href="{{ path('_login') }}">LOGIN</a>
+					<div id="user_links">
+						<a href="{{ path('_registration') }}">REGISTER</a>
+						<a href="{{ path('_login') }}">LOGIN</a>
+					</div>
 				{% endif %}
 			</div>
 		</div>

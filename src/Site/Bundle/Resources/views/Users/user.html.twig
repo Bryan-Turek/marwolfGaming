@@ -4,11 +4,22 @@
 
 {% block content %}
     <h1>{{ user.name }}!</h1>
-	<div id="user_info">
-		<div id="user_image">
-			<img src="http://vanillicon.com/{{ user.encname }}_200.png" />
+	<div id="user_sidebar">
+		<div id="user_info">
+			<div id="user_image">
+				<img src="http://vanillicon.com/{{ user.encname }}_200.png" />
+			</div>
+			Email : {{ user.email }}<br />
+			Registered : {{ user.registered|date("m/d/Y") }}<br />
 		</div>
-		Email : {{ user.email }}<br />
-		Registered : {{ user.registered|date("m/d/Y") }}<br />
+	</div>
+	<div id="user_main">
+		<div id="user_content">
+			{% for post in user.posts %}
+				{{ post.content }}
+			{% else %}
+				<div id="noPosts">No posts found!</div>
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}
